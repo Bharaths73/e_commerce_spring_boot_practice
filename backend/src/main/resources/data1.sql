@@ -1,0 +1,3 @@
+insert into product(name,desc,brand,price,category,release_Date,quantity,available) values ('Samsung','samsung s22 ultra','samrtphone',70000,'mobile','2024-01-15',1,true);
+insert into product(name,desc,brand,price,category,release_Date,quantity,available) values ('Apple','iphone 15 pro','samrtphone',50000,'mobile','2024-01-15',5,false);
+insert into product(name,desc,brand,price,category,release_Date,quantity,available) values ('redmi','redmi note 10s','samrtphone',20000,'mobile','2024-01-15',10,true);
