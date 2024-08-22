@@ -6,7 +6,7 @@ import { increment } from '../redux/Slice/CartSlice';
 
 export const Card=({data})=>{
     const dispatch=useDispatch();
-    const {token} =useSelector(state=>state.user);
+    const {token,role} =useSelector(state=>state.user);
     // const isPresentInCart = useSelector((state)=>isProductInCart(state,data.id));
     // const imageUrl=URL.createObjectURL(data.imageDate);
     return(
@@ -17,9 +17,9 @@ export const Card=({data})=>{
                <p className='text-white'>{data.price}</p>
                </Link>
                 {
-                    token!==null &&
+                    token!==null && role!=="ADMIN" &&
                     (
-                        data.available ? (<button onClick={()=>dispatch(increment(data))} className='bg-yellow-200 text-black px-3 py-2 border-spacing-2 rounded-lg'>Add to Cart</button>)   : (<button disabled className='bg-red-500 text-black px-3 py-2 border-spacing-2 rounded-lg'>Out of Stock</button>)
+                        data.available && data.itemQuantity>0 ? (<button onClick={()=>dispatch(increment(data))} className='bg-yellow-200 text-black px-3 py-2 border-spacing-2 rounded-lg'>Add to Cart</button>)   : (<button disabled className='bg-red-500 text-black px-3 py-2 border-spacing-2 rounded-lg'>Out of Stock</button>)
                     )
                 }
             

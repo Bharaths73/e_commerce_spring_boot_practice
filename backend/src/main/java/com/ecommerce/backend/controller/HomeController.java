@@ -22,6 +22,7 @@ import com.cloudinary.http44.api.Response;
 import com.ecommerce.backend.DTO.OtpRequestDto;
 import com.ecommerce.backend.DTO.RegisterDto;
 import com.ecommerce.backend.exceptions.ProductNotFoundException;
+import com.ecommerce.backend.model.OTP;
 import com.ecommerce.backend.model.Product;
 import com.ecommerce.backend.model.Users;
 import com.ecommerce.backend.service.EmailService;
@@ -128,7 +129,7 @@ public class HomeController {
 
     @PostMapping("/otp")
     public ResponseEntity<?> sendOtp(@RequestBody OtpRequestDto optDto) throws MessagingException {
-       userService.sendOtp(optDto);
-       return new ResponseEntity<>(optDto,HttpStatus.OK);
+       OTP otp=userService.sendOtp(optDto);
+       return new ResponseEntity<>(otp,HttpStatus.OK);
     }
 }

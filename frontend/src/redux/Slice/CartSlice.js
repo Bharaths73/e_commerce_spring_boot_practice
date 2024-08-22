@@ -23,11 +23,21 @@ export const cartSlice = createSlice({
       let index=itemPresent(state,action);
 
       if(index>=0){
-        state.data[index].quantity++;
+        if (state.data[index].quantity !== action.payload.itemQuantity) {
+          state.data[index].quantity++;
+        } else {
+          alert("Quantity limit reached"); // Show message
+        }
       }
        else{
-        action.payload.quantity++;
+        // action.payload.quantity++;
+
         let itemUpdated=action.payload;
+        if(!itemUpdated.hasOwnProperty('quantity')){
+          itemUpdated.quantity=0;
+        }
+
+          itemUpdated.quantity++;
         state.data.push(itemUpdated);
        }  
        localStorage.setItem('cartItem',JSON.stringify(state.data));  
@@ -47,7 +57,16 @@ export const cartSlice = createSlice({
       let index=itemPresent(state,action);
 
       if(index>=0){
-           state.data[index].quantity++;
+          let item_id=action.payload.id;
+           console.log("item id is",item_id);
+           
+           if(state.data[index].quantity!=action.payload.itemQuantity){
+               state.data[index].quantity++;
+           }
+           else{
+            alert("Quantity limit reached");
+              
+           }
            localStorage.setItem("cartItem",JSON.stringify(state.data))
 
       }

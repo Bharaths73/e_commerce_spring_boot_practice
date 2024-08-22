@@ -10,6 +10,7 @@ export const AddProduct=()=>{
         description:'',
         price:'',
         available:'',
+        itemQuantity:0
     })
     const[image,setImage]=useState();
 
@@ -35,6 +36,7 @@ export const AddProduct=()=>{
                       description:'',
                       price:'',
                       available:'',
+                      itemQuantity:0
                   }
               )
               setImage('')
@@ -86,8 +88,9 @@ export const AddProduct=()=>{
                 <label htmlFor='' className='text-white font-semibold'>Product Image</label>
                 <input type='file' id='image' onChange={(e)=>imageHandler(e)} className='text-white'/>
 
-                <label htmlFor='' className='text-white font-semibold'>Product Available</label>
-               <div className='flex text-white gap-5'>
+               <div className='flex gap-x-5'>
+               <label htmlFor='' className='text-white font-semibold'>Product Available</label>
+               <div className='flex text-white gap-5 '>
               <div className='flex gap-1'>
               <input type='radio' id='available' value='true' onChange={(e)=>changeHandler(e)} checked={formDt.available==='true'}/> True
               </div>
@@ -95,6 +98,17 @@ export const AddProduct=()=>{
                <input type='radio' id='available' value='false' onChange={(e)=>changeHandler(e)} checked={formDt.available==='false'}/> False
                </div>
                </div>
+               </div>
+
+                {
+                    formDt.available==='true' && 
+                   <div className='flex flex-col gap-2'>
+                     <label htmlFor='' className='text-white font-semibold'>Available Quantity</label>
+                     <input type='number' min={1} id='itemQuantity' placeholder='Enter Available Quantity' onChange={(e)=>changeHandler(e)} className='border rounded-md px-2 py-2 outline-none' value={formDt.itemQuantity}/>
+                   </div>
+                }
+
+
                 <button className='bg-yellow-300 px-20 py-2 mx-auto border-yellow-300 rounded-md'>Submit</button>
             </form>
         </div>

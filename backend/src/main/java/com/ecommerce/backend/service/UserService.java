@@ -79,7 +79,7 @@ public class UserService {
             throw new IncorrectOtpException("incorrect otp");
         }
         else{
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException("Please register first");
         }
         
     }

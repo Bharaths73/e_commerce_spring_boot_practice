@@ -35,5 +35,5 @@ public class Product {
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private Date releaseDate;
     private boolean available;
-    private int quantity;
+    private int itemQuantity;
 }
