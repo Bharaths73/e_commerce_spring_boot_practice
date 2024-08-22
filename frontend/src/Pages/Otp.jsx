@@ -19,6 +19,9 @@ export const Otp=()=>{
         console.log("user details is ",details);
         
         const result=await registerAuth(details,navigate);
+        if(result){
+            alert("Registered successfully")
+        }
     }
 
     useEffect(()=>{

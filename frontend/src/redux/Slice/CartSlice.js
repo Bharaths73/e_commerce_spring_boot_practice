@@ -25,6 +25,7 @@ export const cartSlice = createSlice({
       if(index>=0){
         if (state.data[index].quantity !== action.payload.itemQuantity) {
           state.data[index].quantity++;
+          alert("item added to cart")
         } else {
           alert("Quantity limit reached"); // Show message
         }
@@ -39,6 +40,7 @@ export const cartSlice = createSlice({
 
           itemUpdated.quantity++;
         state.data.push(itemUpdated);
+        alert("item added to cart")
        }  
        localStorage.setItem('cartItem',JSON.stringify(state.data));  
     },

@@ -28,7 +28,7 @@ export const AddProduct=()=>{
         const result=await addProduct(formData,token)
 
         if(result){
-            console.log("submitted ",result);
+            alert("Product added successfully")
             setFormDt(
                 {
                       name:'',
